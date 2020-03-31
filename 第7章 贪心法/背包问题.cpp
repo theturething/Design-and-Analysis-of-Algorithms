@@ -8,21 +8,22 @@ int main( )
     int w[n] = {10, 30, 20}, v[n] = {50, 120, 60};
     int C = 50;
     int value = KnapSack(w, v, 3, C);
-    cout<<"±³°ü»ñµÃµÄ×î´ó¼ÛÖµÊÇ£º"<<value<<endl;
+    cout<<"èƒŒåŒ…è·å¾—çš„æœ€å¤§ä»·å€¼æ˜¯ï¼š"<<value<<endl;
     return 0;
 }
 
 int KnapSack(int w[ ], int v[ ], int n, int C)
 {
-    double x[10] = {0};           //ÎïÆ·¿É²¿·Ö×°Èë
+    double x[10] = {0};           //ç‰©å“å¯éƒ¨åˆ†è£…å…¥
     int maxValue = 0;
-    for (int i = 0; w[i] < C; i++)
+    int i;
+    for (i = 0; w[i] < C; i++)
     {
-        x[i] = 1;                 //½«ÎïÆ·i×°Èë±³°ü
+        x[i] = 1;                 //å°†ç‰©å“iè£…å…¥èƒŒåŒ…
         maxValue += v[i];
-        C = C - w[i];             //±³°üÊ£ÓàÈİÁ¿
+        C = C - w[i];             //èƒŒåŒ…å‰©ä½™å®¹é‡
     }
-    x[i] = (double)C/w[i];        //ÎïÆ·i×°ÈëÒ»²¿·Ö
+    x[i] = (double)C/w[i];        //ç‰©å“iè£…å…¥ä¸€éƒ¨åˆ†
     maxValue += x[i] * v[i];
-    return maxValue;              //·µ»Ø±³°ü»ñµÃµÄ¼ÛÖµ
+    return maxValue;              //è¿”å›èƒŒåŒ…è·å¾—çš„ä»·å€¼
 }
